@@ -1,0 +1,45 @@
+
+body {
+  background-image: url("../img/burger-bg.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.jumbotron, .work-area {
+  background-color: rgba(211, 211,211, 0.7);
+}
+
+.btn-devour {
+  /* align */
+  position: absolute;
+  right: 18px;
+}
+.work-area {
+  border-radius: 5px;
+  height: 80vh;
+}
+
+.left-side, .right-side {
+  height: 80vh;
+  overflow-y: auto;
+  padding: 10px 12px;
+}
+
+.btn-devour {
+  background-color : green;
+  border-radius: 5px;
+  color: white;
+}
+.create-form button {
+  background-color: yellow;
+  border-radius: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-5 left-side">
+      {{#each burgers}}
+      {{#unless devoured}}
+      <h6>🍔{{name}}<button class="btn-devour" data-id="{{id}}">Devour it!</button></h6>
+      {{/unless}}
+      {{/each}}
+    </div>
+    <div class="col-3">
+      <img src="assets/img/burger.png" alt="burger">
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="burger-id">Enter your burger</label>
+          <input type="text" id="burger-id" name="name">
+        </div>
+
+        <button type="submit">Add Burger</button>
+      </form>
+    </div>
+    <div class="col-4 right-side">
+
+      {{#each burgers}}
+      {{#if devoured}}
+      <h6>😋{{name}}</h6>
+      {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
