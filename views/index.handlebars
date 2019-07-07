@@ -7,23 +7,13 @@
       {{/unless}}
       {{/each}}
     </div>
-    <div class="col-3">
-      <img src="assets/img/burger.png" alt="burger">
-      <form class="create-form">
 
-        <div class="form-group">
-          <label for="burger-id">Enter your burger</label>
-          <input type="text" id="burger-id" name="name">
-        </div>
-
-        <button type="submit">Add Burger</button>
-      </form>
-    </div>
     <div class="col-4 right-side">
 
       {{#each burgers}}
       {{#if devoured}}
-      <h6>😋{{name}}</h6>
+      <h6>{{getface rating}}
+        {{name}}</h6>
       {{/if}}
       {{/each}}
     </div>

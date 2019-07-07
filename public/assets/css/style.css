@@ -10,6 +10,17 @@ body {
   background-color: rgba(211, 211,211, 0.7);
 }
 
+.jumbotron img {
+  width: 135px;
+}
+
+#burger-error {
+  color: red;
+  font-weight: bold;
+}
+.form-check-label {
+  padding-right: 18px;
+}
 .btn-devour {
   /* align */
   position: absolute;

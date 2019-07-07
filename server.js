@@ -14,8 +14,15 @@ app.use(express.json());
 
 // Set Handlebars.
 const exphbs = require("express-handlebars");
+var hbsHelpers = exphbs.create({
+    helpers: require("./helpers/handlebars.js").helpers,
+    defaultLayout: 'main',
+});
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+console.log(hbsHelpers.helpers);
+app.engine("handlebars", hbsHelpers.engine);
+
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
@@ -24,7 +31,7 @@ var routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
 db.sequelize
-  .sync()
+  .sync({ force: false })
   .then(function () {
     app.listen(PORT, () => {
       console.log("App listening at http://localhost:" + PORT);
