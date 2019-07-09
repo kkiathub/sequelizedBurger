@@ -21,6 +21,13 @@ body {
 .form-check-label {
   padding-right: 18px;
 }
+
+#order-key, #order-dir {
+  border : 2px solid darkslategrey;
+  border-radius : 5px;
+  padding : 5px;
+}
+
 .btn-devour {
   /* align */
   position: absolute;

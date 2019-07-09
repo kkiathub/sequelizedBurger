@@ -8,12 +8,33 @@
       {{/each}}
     </div>
 
-    <div class="col-4 right-side">
+    <div class="col-7 right-side">
+      <div class="form-check-inline my-3">
+        <div id="order-key" class="mr-2">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="order-type" value="key_burger" {{getcheck order_key "key_burger"}}>Burger
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="order-type" value="key_customer" {{getcheck order_key "key_customer"}}>Customer
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="order-type" value="key_rating" {{getcheck order_key "key_rating"}}>Rating
+          </label>
+        </div>
+        <div id="order-dir">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="order-by" value="key_ascending" {{getcheck order_by "key_ascending"}}>Ascending
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="order-by" value="key_descending" {{getcheck order_by "key_descending"}}>Descending
+          </label>
+        </div>
 
+      </div>
       {{#each burgers}}
       {{#if devoured}}
       <h6>{{getface rating}}
-        {{name}}</h6>
+        {{name}} ( Eaten By {{Customer.name}} )</h6>
       {{/if}}
       {{/each}}
     </div>

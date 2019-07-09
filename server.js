@@ -19,7 +19,6 @@ var hbsHelpers = exphbs.create({
     defaultLayout: 'main',
 });
 
-console.log(hbsHelpers.helpers);
 app.engine("handlebars", hbsHelpers.engine);
 
 // app.engine("handlebars", exphbs({ defaultLayout: "main" }));

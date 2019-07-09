@@ -7,13 +7,77 @@ var db = require("../models");
 const Burger = db.Burger;
 
 // Create all our routes and set up logic within those routes where required.
+function findBurger(o_key, o_by, res) {
+  console.log("key : " + o_key + " " + o_by);
+  var orderKey = [];
+  switch (o_key) {
+    case "key_rating":
+      orderKey.push("rating");
+      break;
+    case "key_customer":
+      orderKey.push(db.Customer);
+    default:
+      orderKey.push("name");
+      break;
+  }
+
+  if (o_by==="key_descending") {
+    orderKey.push("DESC");
+  }
+  console.log(orderKey);
+  
+  Burger.findAll({
+    include: [db.Customer],
+    order: [orderKey]
+  }).then((data) => {
+    // results are available to us inside the .then
+    var hbsObject = {
+      burgers: data,
+      order_key: o_key,
+      order_by: o_by
+    };
+
+    res.render("index", hbsObject);
+
+  });
+}
+
 router.get("/", (req, res) => {
-  Burger.findAll({}).then((data) => {
+  findBurger("key_burger", "key_ascending", res);
+  return;
+});
+
+router.get("/:key/:by", (req, res) => {
+  console.log(req.params);
+  findBurger(req.params.key, req.params.by, res);
+  return;
+  console.log("param");
+  console.log(req.params);
+  var orderKey = [];
+  switch (req.params.order_key) {
+    case "key_rating":
+      orderKey.push("rating");
+      break;
+    case "key_customer":
+      orderKey.push(db.Customer);
+    default:
+      orderKey.push("name");
+      break;
+  }
+
+  if (req.params.order_by==="key_descending") {
+    ordeyKey.push("DESC");
+  }
+  console.log(orderKey);
+
+  Burger.findAll({
+    include: [db.Customer],
+    order: [orderKey]
+  }).then((data) => {
     // results are available to us inside the .then
     var hbsObject = {
       burgers: data
     };
-    // console.log(hbsObject);
 
     res.render("index", hbsObject);
 

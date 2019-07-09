@@ -3,6 +3,11 @@ var register = function (Handlebars) {
         getface: function (faceValue) {
             var faceIcon = ["🤢","😐","🙂","😋","😍"] ;
             return faceIcon[faceValue-1];
+        },
+        getcheck: function (keyValue, currentKey) {
+            if (keyValue==currentKey)
+                return "checked";
+            return "";
         }
     };
 

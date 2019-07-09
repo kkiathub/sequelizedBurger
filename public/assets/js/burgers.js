@@ -1,5 +1,29 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
+
+  function reloadPage() {
+    var orderState = "/" + $("input[name='order-type']:checked").val()
+      + "/" + $("input[name='order-by']:checked").val();
+
+    $.get(orderState, function (data) {
+      console.log("get data");
+      document.open();
+      document.write(data);
+      document.close();
+    });
+
+  }
+
+  $('input:radio[name="order-type"]').change(function () {
+    console.log("radio selected: " + $("input[name='order-type']:checked").val());
+    reloadPage();
+  });
+
+  $('input:radio[name="order-by"]').change(function () {
+    console.log("radio selected: " + $("input[name='order-by']:checked").val());
+    reloadPage();
+  });
+
   $(".btn-devour").on("click", function (event) {
     // Show the modal with the best match
     $("#customer-name").val("");
@@ -17,7 +41,6 @@ $(function () {
   $("#devour-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    console.log("get here : devour");
     var id = $(this).data("id");
     var radioValue = $("input[name='rating']:checked").val();
 
