@@ -40,8 +40,17 @@ body {
 
 .left-side, .right-side {
   height: 80vh;
-  overflow-y: auto;
   padding: 10px 12px;
+}
+
+.left-side, .right-burgers {
+  overflow-y: auto;
+}
+
+.right-burgers {
+  border : 2px solid darkslategrey;
+  border-radius : 5px;
+  padding: 12px;
 }
 
 .btn-devour {

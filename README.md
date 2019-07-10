@@ -16,6 +16,7 @@ This is a full-stack website that allow you to create burger logger with MySql. 
     - We use node.js and javascript in coding.
     - Express package is used to send request and received response.  In this project, server sends back html page to the client.
     - The express-handlebars is used to render html pages. 
+    - We register extra handlebars' helper to help rendering some conditional data.
     - Burger data is stored in the database.  We use MySql as a database.
     - We use sequelize to manipulate data from database.
     - We use MVC architecture to separate code and data in different layers.  
