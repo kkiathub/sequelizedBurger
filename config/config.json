@@ -5,8 +5,9 @@
     "database": "burgers_seq_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": true
+    "operatorsAliases": false
   },
+  
   "test": {
     "username": "root",
     "password": null,
